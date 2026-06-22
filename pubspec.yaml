@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  permission_handler: ^12.0.1
+  permission_handler: ^12.0.3
   permission_handler_platform_interface: ^4.3.0
   plugin_platform_interface: ^2.1.8
 
@@ -37,3 +37,4 @@ flutter:
         pluginClass: CunningDocumentScannerPlugin
       ios:
         pluginClass: CunningDocumentScannerPlugin
+        sharedDarwinSource: true

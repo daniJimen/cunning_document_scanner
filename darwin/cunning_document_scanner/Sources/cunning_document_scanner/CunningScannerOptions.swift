@@ -1,37 +1,30 @@
-//
-//  ScannerOptions.swift
-//  cunning_document_scanner
-//
-//  Created by Maurits van Beusekom on 15/10/2024.
-//
-
 import Foundation
 
-enum CunningScannerImageFormat: String {
+public enum CunningScannerImageFormat: String {
     case jpg
     case png
 }
 
-struct CunningScannerOptions {
-    let imageFormat: CunningScannerImageFormat
-    let jpgCompressionQuality: Double
+public struct CunningScannerOptions {
+    public let imageFormat: CunningScannerImageFormat
+    public let jpgCompressionQuality: Double
     
-    init() {
+    public init() {
         self.imageFormat = CunningScannerImageFormat.png
         self.jpgCompressionQuality = 1.0
     }
     
-    init(imageFormat: CunningScannerImageFormat) {
+    public init(imageFormat: CunningScannerImageFormat) {
         self.imageFormat = imageFormat
         self.jpgCompressionQuality = 1.0
     }
     
-    init(imageFormat: CunningScannerImageFormat, jpgCompressionQuality: Double) {
+    public init(imageFormat: CunningScannerImageFormat, jpgCompressionQuality: Double) {
         self.imageFormat = imageFormat
         self.jpgCompressionQuality = jpgCompressionQuality
     }
     
-    static func fromArguments(args: Any?) -> CunningScannerOptions {
+    public static func fromArguments(args: Any?) -> CunningScannerOptions {
         if (args == nil) {
             return CunningScannerOptions()
         }

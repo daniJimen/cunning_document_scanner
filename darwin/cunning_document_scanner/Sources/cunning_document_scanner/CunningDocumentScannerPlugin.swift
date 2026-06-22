@@ -4,14 +4,14 @@ import Vision
 import VisionKit
 
 @available(iOS 13.0, *)
-public class SwiftCunningDocumentScannerPlugin: NSObject, FlutterPlugin, VNDocumentCameraViewControllerDelegate {
+public class CunningDocumentScannerPlugin: NSObject, FlutterPlugin, VNDocumentCameraViewControllerDelegate {
   var resultChannel: FlutterResult?
   var presentingController: VNDocumentCameraViewController?
   var scannerOptions: CunningScannerOptions = CunningScannerOptions()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "cunning_document_scanner", binaryMessenger: registrar.messenger())
-    let instance = SwiftCunningDocumentScannerPlugin()
+    let instance = CunningDocumentScannerPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
@@ -58,7 +58,7 @@ public class SwiftCunningDocumentScannerPlugin: NSObject, FlutterPlugin, VNDocum
                 try? page.pngData()?.write(to: url)
                 break
             }
-            
+
             filenames.append(url.path)
         }
         resultChannel?(filenames)
