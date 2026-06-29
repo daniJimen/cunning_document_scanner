@@ -1,0 +1,120 @@
+## 2.4.0
+### Android
+* Migrated to "Built-in Kotlin" support, removing manual Kotlin Gradle Plugin (KGP) application for future Flutter compatibility.
+* Updated Gradle wrapper to `8.14.5`.
+* Updated Android Gradle Plugin (AGP) to `8.13.1`.
+* Updated Kotlin version to `2.2.20`.
+
+## 2.3.0
+### Android
+* Upgraded Gradle wrapper to version `8.14.5`.
+* Modernized Kotlin configuration to use the new `compilerOptions` DSL instead of legacy `kotlinOptions`.
+* Cleaned up legacy build script configurations, removing deprecated dependencies (`kotlin-stdlib-jdk7`) and applying standard Kotlin DSL configurations.
+
+## 2.2.0
+### Android
+* Added support for configuring the ML Kit document scanner mode.
+* Added `AndroidScannerMode` enum (`full`, `base`, `baseWithFilter`) to choose between different scanning pipelines.
+
+## 2.1.0
+
+### General
+* Bumped Dart SDK constraint to `>=3.5.0 <4.0.0`.
+* Bumped Flutter SDK constraint to `>=3.24.0`.
+* Upgraded `permission_handler` to `^12.0.3`.
+* Upgraded `flutter_lints` constraint to `^6.0.0`.
+* Moved `permission_handler_platform_interface` to `dev_dependencies`.
+* Modernized Flutter code syntax.
+* Added launch configurations for VS Code.
+
+### iOS
+* Migrated the iOS plugin to Swift Package Manager (SPM) for modern Flutter integration.
+* Reorganized the iOS directory structure under `ios/cunning_document_scanner/` and added `Package.swift`.
+* Renamed `SwiftCunningDocumentScannerPlugin` to `CunningDocumentScannerPlugin`.
+
+## 2.0.0
+### Breaking Changes
+* Reorganized library structure: all implementation files moved to `lib/src/` directory.
+* Renamed `ios_options.dart` to `ios_scanner_options.dart` for better clarity.
+* Separated `IosImageFormat` enum into its own file (`ios_image_format.dart`).
+
+### Improvements
+* Added custom exception `CunningDocumentScannerException` with specific error codes.
+* Replaced generic `Exception` with `CunningDocumentScannerException.permissionDenied()` for better error handling.
+* Improved code organization with barrel exports - users only need a single import.
+* Added comprehensive unit tests for custom exceptions.
+* Enhanced equality operators for `CunningDocumentScannerException`.
+
+### Migration Guide
+* No changes required for users - the public API remains the same with `import 'package:cunning_document_scanner/cunning_document_scanner.dart';`
+* If catching exceptions, update catch blocks to use `CunningDocumentScannerException` instead of generic `Exception`.
+
+## 1.4.0
+### General
+* Bumped `permission_handler` to `12.0.1`.
+* Updated the example app to use Kotlin `2.2.21`, Android Gradle Plugin `8.13.1`, and Gradle `8.13`.
+* Added detailed documentation comments to the `CunningDocumentScanner` class.
+### Android
+* Upgraded `play-services-mlkit-document-scanner` to `16.0.0`.
+* Updated `compileSdk` to `34`.
+
+## 1.3.1
+* Upgraded dependencies.
+
+## 1.3.0
+* Allow users to configure the image output type on iOS (PNG or JPEG).
+
+## 1.2.3
+* Fix iOS crash where Documentscanner is not available
+
+## 1.2.2
+* Fix bitmap exception crash on Android (thanks to rosenberg_ptr)
+
+## 1.2.1
+* Add fallback for Android devices < 1.7GB RAM
+
+## 1.2.0
+* Use ML kit on Android
+* dropped nocrop support
+* image quality dropped
+
+## 1.1.5
+* Nmed parameters
+* crop default is false
+* dependencies updated
+* min ios version 12 now
+
+## 1.1.4
+* Fixed iOS permission issue in example
+* upgraded permission_handler
+
+## 1.1.3
+* Fixed permanently denied permission issue
+* Merged crop option for android - Thanks Edwin
+
+## 1.1.2
+* iOS return unique filenames
+
+## 1.1.1
+* Updated android documentscanner library
+
+## 1.1.0
+* Exchanged android documentscanner with https://github.com/WebsiteBeaver/android-document-scanner
+
+## 1.0.4
+* Fixed conflicting requestcodes issue
+
+## 1.0.3
+* Updated permission handler constraint to ^10
+* Android fixed nullsafe access issues
+
+## 1.0.2
+* Cleanup code - added images to README.md
+
+## 1.0.1
+
+* Fixed Playstore issue exported activity. Added documentation.
+
+## 1.0.0
+
+* Android and iOs Documentscanner based on Visionkit and AndroidDocument https://github.com/mayuce/AndroidDocumentScanner
